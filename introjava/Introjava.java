@@ -12,7 +12,7 @@ class Introjava{
         for(String letra:w){
             System.out.print(letra+" ");
         }
-        System.out.print("\n\n\n");
+        System.out.print("\n\n\n");  
        
      
         //outras implementações com vetor
