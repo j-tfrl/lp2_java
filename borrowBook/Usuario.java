@@ -2,6 +2,7 @@ class Usuario{
     String nome;
     int mat; //matricula
     int qtd; //conta usuários
+    Usuario prox;
 
     Usuario(String n, int m){
         this.nome=n;

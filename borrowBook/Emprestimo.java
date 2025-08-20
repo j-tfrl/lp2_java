@@ -41,27 +41,5 @@ class Emprestimo{
         //ver como chamar devolver aqui
     }
 
-
-    //o segundo for seria ideal para o acervo em si
-    Boolean realizarEmp(int idUs, int cdLivro){
-
-       /*IDEAL: transferir essa busca para outra classe 
-        for(int i=0;i<u_emp.length;i++){
-            if(u_emp[i]==idUs){
-                for(int j=0;j<l_emp.length;j++){
-                    if(l_emp[j]==cdLivro){
-                        //adciona o usuário na lista de livros emprestados
-                    }
-                }
-            }
-        }
-             */
-            
-    }
-
-
-
-
-
    
 }

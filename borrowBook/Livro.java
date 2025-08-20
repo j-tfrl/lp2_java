@@ -20,6 +20,7 @@ class Livro{
 
     Boolean realizarEmp(Livro l){
          //impl: mostrar que o livro saiu do acervo
+        //metodo para adicionar na lista   
         if(this.qtd>0){ this.qtd--; return regDev=true;}
         else{
             System.out.println("Livro não disponível\n");

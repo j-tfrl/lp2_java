@@ -1,7 +1,4 @@
 class Biblioteca{
-    Livro ini;
-    Livro prox;
-    //int totalAcervo;
     int totalAlunosB; //total de alunos com emp.
     //Livro[] acv; //acervo de livros
     Usuario lista_u;
@@ -10,40 +7,44 @@ class Biblioteca{
     
     void InsListadeLivros(int c, int q, String t, String a){
         Livro novol=new Livro(c,q,t,a);
-        novol.prox=ini;
-        ini=novol;
-        novol.qtd++;
+        novol.prox=lista_l;
+        lista_l=novol;
+        //novol.qtd++;
     }
 
     void InsListadeAlunos(String n, int m){
         Usuario novou=new Usuario(n, m);
-        novou.prox=ini;
-        ini=novou;
-        novou.qtd++;
+        novou.prox=lista_u;
+        lista_u=novou;
+        //novou.qtd++;
     }
 
 
-    int sqUSearch(Usuario lista_u, Usuario proc){
-        for (int i=0; i<lista_u.qtd; i++){
-            if(lista_u[i]==proc){
-                return i;
-            }
+    Usuario sqUSearch(int mat){
+        Usuario atual=lista_u;
+       while(atual!=null){
+        if(atual.mat==mat){
+            return atual;
         }
+        atual=atual.prox;
+       }
 
-        System.out.println(proc+" Usuário não encontrado!\n");
-        return -1;
+        System.out.println(proc+": Usuário não encontrado!\n");
+        return null;
     }
 
 
-    int sqLSearch(Livro lista_l, Livro proc){
-        for (int i=0; i<lista_l.qtd; i++){
-            if(lista_l[i]==proc){
-                return i;
+    Livro sqLSearch(int cod){
+        Livro atual=lista_l;
+        while(atual!=null){
+            if(atual.cod==cod){
+                return atual;
             }
+            atual=atual.prox;
         }
-
-        System.out.println(proc+" Livro não encontrado!\n");
-        return -1;
+        System.out.println(cod+": Livro não encontrado\n");
+        return null;
+        
     }
 
 
