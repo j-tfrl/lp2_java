@@ -12,6 +12,30 @@ class Biblioteca{
         //novol.qtd++;
     }
 
+
+    boolean rmvEmp(int c, int q, String t, String a){
+        
+        //função que vai mostra que houve emp. de um título
+        //remove o livro da lista
+        if(q!=1){
+            System.err.println("Não foi possível remover o livro\n");
+            return false;
+        }
+        
+        Livro livro2Rmv=new Livro(c, q, t, a);
+        Livro ant=null;
+
+        while(Livro2Rmv!=null){
+            if(Livro2Rmv.titulo.equals(t) && 
+            Livro2Rmv.cod==c && Livro2Rmv.a.equals(a)){
+                if(ant==null){
+                    //como inserir o início da lista aqui?
+                }
+            }
+        }
+    }
+
+
     void InsListadeAlunos(String n, int m){
         Usuario novou=new Usuario(n, m);
         novou.prox=lista_u;
@@ -29,7 +53,7 @@ class Biblioteca{
         atual=atual.prox;
        }
 
-        System.out.println(proc+": Usuário não encontrado!\n");
+        System.out.println(mat+": Usuário não encontrado!\n");
         return null;
     }
 
@@ -49,21 +73,47 @@ class Biblioteca{
 
 
     void exibir(){
-        Livro at=ini;
-        while(at!=null){
-            System.out.println(at.titulo+"-->");
-            at=at.prox; //mostrar que livros foram emprestados
-        }
-        System.out.println();
+        Livro at=lista_l;
 
-        if(var.emp==true){
-            //impl: mostra a lista com o nome do usuário associado
-        }else{
-            //o livro não emprestado deve vir com 'S/E'
-            // S/E -> sem empréstimo atual
+        System.out.println("CATÁLOGO DE LIVROS\n");
+        System.out.println("LEGENDA: S/E='SEM EMPRÉSTIMO\n"+
+        "C/E='COM EMPRÉSTIMO ATIVO'\n");
+
+        while(at!=null){ //ver que alteração deve ser feita em at!
+            System.out.println("' "+at.titulo+" '"+" por "+at.autor);
+           
+           
+           if(at.qtd>0){
+            System.out.println(" ::: DISPONÍVEL (S/E)\n");
+            System.out.println(" ::: Há alguns livros que não foram emprestados.\n");
+
+           }else{
+            System.out.println(" ::: C/E");
+           }
+             at=at.prox;
+          //mostrar que livros foram emprestados
         }
+          System.out.println();
     }
 
 
+    boolean realizarEmp(int mat, int cod){
+        Usuario uEmp=new Uemp(mat);
+        Livro lEmp=new lEmp(cod);
+
+        if(uEmp==null || lEmp==null){
+            System.err.println("Usuário/Código não informado(s)\n");
+            return false;
+        }
+
+        boolean empEfetivado=lEmp.regDev;
+
+        if(empEfetivado){
+            Emprestimo novoEmp=new Emprestimo(uEmp, lEmp);
+            return true;
+        }
+
+        return false;
+    }
 
 }

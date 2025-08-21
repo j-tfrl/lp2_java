@@ -1,4 +1,3 @@
-import java.util.Arrays;
 class Emprestimo{
     /*
     INSTRUÇÕES DA ATIVIDADE
@@ -19,21 +18,8 @@ class Emprestimo{
        this.l_emp=lemp;
        empAtivo=true;
 
-       //função para indicar que o livro não está disponível
-       l_emp.realizarEmp(uemp.mat, lemp.cod);
-    }
-
-    void downEmp(){
-        if(empAtivo){
-            // impl: o acervo da biblioteca deve diminuir
-        }
-
-        // talvez seja útil ver totalAcervo aqui
-    }
-
-    void upEmp(){
-        // impl: função que vai fazer o oposto de
-        // downEmp
+       //!!!função para indicar que o livro não está disponível
+       //l_emp.realizarEmp(uemp.mat, lemp.cod);
     }
 
     void devolver(){
