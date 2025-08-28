@@ -1,4 +1,4 @@
-class contaBancaria{
+public class contaBancaria{
     private String titular;
     private String numeroConta;
     private double saldo;
@@ -16,15 +16,15 @@ class contaBancaria{
         if(valor>0){
             this.saldo+=valor;
         }else{
-            throw new InvalidArgumentException("Valor informado precisa ser positivo\n");
+            throw new IllegalArgumentException("Valor informado precisa ser positivo\n");
         }
     }
 
     public void sacar(double valor){
-        if(valor>0 && saldo<=valor){
+        if(valor>0 && saldo>=valor){
             this.saldo-=valor;
         }else{
-             throw new InvalidArgumentException("Valor informado precisa ser positivo\n");
+             throw new IllegalArgumentException("Valor informado precisa ser positivo\n");
         }
     }
 
@@ -32,19 +32,22 @@ class contaBancaria{
         System.out.println("##################################");
         System.out.println("       CONTA BANCÁRIA       \n");
         System.out.println("##################################");
-        System.out.println("TÍTULAR | \t N. CONTA | \t  SALDO ");
+        System.out.println();
+        System.out.println("TÍTULAR | N. CONTA \t |\tSALDO ");
 
         System.out.println();
-        System.out.println(this.titular+"\t"+this.numeroConta+"\t"+this.saldo);
-
+        System.out.println(this.titular+"\t   "+this.numeroConta+"\t\t"+this.saldo);
 
     }
 
 
-}
+      public static void main(String[] args) {
+        contaBancaria c1=new contaBancaria("JOSÉ", "81687665-1", 22.65);
 
-class main{
-    public static void main(String[] args) {
-        //to be impl
+        //c1.depositar(42.70);
+        c1.sacar(5.63);
+        c1.exibirInfo();   
+
     }
+
 }
